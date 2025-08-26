@@ -67,6 +67,8 @@ _kwargs["data"] = body.to_dict()
 {{ json_body(body) }}
 {% elif body.body_type == "content" %}
 _kwargs["content"] = body.payload
+{% elif body.body_type == "text" %}
+_kwargs["content"] = body
 {% endif %}
 {% endmacro %}
 

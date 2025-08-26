@@ -24,6 +24,7 @@ if sys.version_info >= (3, 11):
         DATA = "data"
         FILES = "files"
         CONTENT = "content"
+        TEXT = "text"
 else:
     from enum import Enum
 
@@ -32,6 +33,7 @@ else:
         DATA = "data"
         FILES = "files"
         CONTENT = "content"
+        TEXT = "text"
 
 
 @attr.define
@@ -87,6 +89,8 @@ def body_from_data(
             body_type = BodyType.FILES
         elif simplified_content_type == "application/octet-stream":
             body_type = BodyType.CONTENT
+        elif simplified_content_type == "text/plain":
+            body_type = BodyType.TEXT
         elif simplified_content_type == "application/json" or simplified_content_type.endswith("+json"):
             body_type = BodyType.JSON
         else:
