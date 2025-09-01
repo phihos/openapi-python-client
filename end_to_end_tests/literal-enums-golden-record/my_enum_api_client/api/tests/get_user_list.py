@@ -70,8 +70,8 @@ def _parse_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
 ) -> Optional[list["AModel"]]:
     if response.status_code == 200:
-        response_200 = []
         _response_200 = response.json()
+        response_200 = []
         for response_200_item_data in _response_200:
             response_200_item = AModel.from_dict(response_200_item_data)
 

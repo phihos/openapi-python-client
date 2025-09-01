@@ -84,17 +84,19 @@ class AModel:
         else:
             an_optional_allof_enum = check_an_all_of_enum(_an_optional_allof_enum)
 
-        nested_list_of_enums = []
         _nested_list_of_enums = d.pop("nested_list_of_enums", UNSET)
-        for nested_list_of_enums_item_data in _nested_list_of_enums or []:
-            nested_list_of_enums_item = []
-            _nested_list_of_enums_item = nested_list_of_enums_item_data
-            for nested_list_of_enums_item_item_data in _nested_list_of_enums_item:
-                nested_list_of_enums_item_item = check_different_enum(nested_list_of_enums_item_item_data)
+        nested_list_of_enums: Union[Unset, list[list[DifferentEnum]]] = UNSET
+        if not isinstance(_nested_list_of_enums, Unset):
+            nested_list_of_enums = []
+            for nested_list_of_enums_item_data in _nested_list_of_enums:
+                _nested_list_of_enums_item = nested_list_of_enums_item_data
+                nested_list_of_enums_item = []
+                for nested_list_of_enums_item_item_data in _nested_list_of_enums_item:
+                    nested_list_of_enums_item_item = check_different_enum(nested_list_of_enums_item_item_data)
 
-                nested_list_of_enums_item.append(nested_list_of_enums_item_item)
+                    nested_list_of_enums_item.append(nested_list_of_enums_item_item)
 
-            nested_list_of_enums.append(nested_list_of_enums_item)
+                nested_list_of_enums.append(nested_list_of_enums_item)
 
         a_model = cls(
             an_enum_value=an_enum_value,

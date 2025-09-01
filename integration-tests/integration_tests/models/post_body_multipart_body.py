@@ -99,8 +99,8 @@ class PostBodyMultipartBody:
         d = dict(src_dict)
         a_string = d.pop("a_string")
 
-        files = []
         _files = d.pop("files")
+        files = []
         for files_item_data in _files:
             files_item = File(payload=BytesIO(files_item_data))
 
@@ -108,15 +108,15 @@ class PostBodyMultipartBody:
 
         description = d.pop("description")
 
-        objects = []
         _objects = d.pop("objects")
+        objects = []
         for objects_item_data in _objects:
             objects_item = AnObject.from_dict(objects_item_data)
 
             objects.append(objects_item)
 
-        times = []
         _times = d.pop("times")
+        times = []
         for times_item_data in _times:
             times_item = isoparse(times_item_data)
 

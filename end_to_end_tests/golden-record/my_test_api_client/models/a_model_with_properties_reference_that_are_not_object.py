@@ -216,8 +216,8 @@ class AModelWithPropertiesReferenceThatAreNotObject:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        enum_properties_ref = []
         _enum_properties_ref = d.pop("enum_properties_ref")
+        enum_properties_ref = []
         for componentsschemas_an_other_array_of_enum_item_data in _enum_properties_ref:
             componentsschemas_an_other_array_of_enum_item = AnEnum(componentsschemas_an_other_array_of_enum_item_data)
 
@@ -225,8 +225,8 @@ class AModelWithPropertiesReferenceThatAreNotObject:
 
         str_properties_ref = cast(list[str], d.pop("str_properties_ref"))
 
-        date_properties_ref = []
         _date_properties_ref = d.pop("date_properties_ref")
+        date_properties_ref = []
         for componentsschemas_an_other_array_of_date_item_data in _date_properties_ref:
             componentsschemas_an_other_array_of_date_item = isoparse(
                 componentsschemas_an_other_array_of_date_item_data
@@ -234,8 +234,8 @@ class AModelWithPropertiesReferenceThatAreNotObject:
 
             date_properties_ref.append(componentsschemas_an_other_array_of_date_item)
 
-        datetime_properties_ref = []
         _datetime_properties_ref = d.pop("datetime_properties_ref")
+        datetime_properties_ref = []
         for componentsschemas_an_other_array_of_date_time_item_data in _datetime_properties_ref:
             componentsschemas_an_other_array_of_date_time_item = isoparse(
                 componentsschemas_an_other_array_of_date_time_item_data
@@ -251,8 +251,8 @@ class AModelWithPropertiesReferenceThatAreNotObject:
 
         double_properties_ref = cast(list[float], d.pop("double_properties_ref"))
 
-        file_properties_ref = []
         _file_properties_ref = d.pop("file_properties_ref")
+        file_properties_ref = []
         for componentsschemas_an_other_array_of_file_item_data in _file_properties_ref:
             componentsschemas_an_other_array_of_file_item = File(
                 payload=BytesIO(componentsschemas_an_other_array_of_file_item_data)
@@ -262,8 +262,8 @@ class AModelWithPropertiesReferenceThatAreNotObject:
 
         bytestream_properties_ref = cast(list[str], d.pop("bytestream_properties_ref"))
 
-        enum_properties = []
         _enum_properties = d.pop("enum_properties")
+        enum_properties = []
         for componentsschemas_an_array_of_enum_item_data in _enum_properties:
             componentsschemas_an_array_of_enum_item = AnEnum(componentsschemas_an_array_of_enum_item_data)
 
@@ -271,15 +271,15 @@ class AModelWithPropertiesReferenceThatAreNotObject:
 
         str_properties = cast(list[str], d.pop("str_properties"))
 
-        date_properties = []
         _date_properties = d.pop("date_properties")
+        date_properties = []
         for componentsschemas_an_array_of_date_item_data in _date_properties:
             componentsschemas_an_array_of_date_item = isoparse(componentsschemas_an_array_of_date_item_data).date()
 
             date_properties.append(componentsschemas_an_array_of_date_item)
 
-        datetime_properties = []
         _datetime_properties = d.pop("datetime_properties")
+        datetime_properties = []
         for componentsschemas_an_array_of_date_time_item_data in _datetime_properties:
             componentsschemas_an_array_of_date_time_item = isoparse(componentsschemas_an_array_of_date_time_item_data)
 
@@ -293,8 +293,8 @@ class AModelWithPropertiesReferenceThatAreNotObject:
 
         double_properties = cast(list[float], d.pop("double_properties"))
 
-        file_properties = []
         _file_properties = d.pop("file_properties")
+        file_properties = []
         for componentsschemas_an_array_of_file_item_data in _file_properties:
             componentsschemas_an_array_of_file_item = File(
                 payload=BytesIO(componentsschemas_an_array_of_file_item_data)

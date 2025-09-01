@@ -314,18 +314,20 @@ class BodyUploadFileTestsUploadPost:
 
         some_nullable_number = _parse_some_nullable_number(d.pop("some_nullable_number", UNSET))
 
-        some_int_array = []
         _some_int_array = d.pop("some_int_array", UNSET)
-        for some_int_array_item_data in _some_int_array or []:
+        some_int_array: Union[Unset, list[Union[None, int]]] = UNSET
+        if not isinstance(_some_int_array, Unset):
+            some_int_array = []
+            for some_int_array_item_data in _some_int_array:
 
-            def _parse_some_int_array_item(data: object) -> Union[None, int]:
-                if data is None:
-                    return data
-                return cast(Union[None, int], data)
+                def _parse_some_int_array_item(data: object) -> Union[None, int]:
+                    if data is None:
+                        return data
+                    return cast(Union[None, int], data)
 
-            some_int_array_item = _parse_some_int_array_item(some_int_array_item_data)
+                some_int_array_item = _parse_some_int_array_item(some_int_array_item_data)
 
-            some_int_array.append(some_int_array_item)
+                some_int_array.append(some_int_array_item)
 
         def _parse_some_array(data: object) -> Union[None, Unset, list["AFormData"]]:
             if data is None:
@@ -335,8 +337,8 @@ class BodyUploadFileTestsUploadPost:
             try:
                 if not isinstance(data, list):
                     raise TypeError()
-                some_array_type_0 = []
                 _some_array_type_0 = data
+                some_array_type_0 = []
                 for some_array_type_0_item_data in _some_array_type_0:
                     some_array_type_0_item = AFormData.from_dict(some_array_type_0_item_data)
 

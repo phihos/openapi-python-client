@@ -76,22 +76,22 @@ class PostBodyMultipartResponse200:
 
         description = d.pop("description")
 
-        files = []
         _files = d.pop("files")
+        files = []
         for files_item_data in _files:
             files_item = File.from_dict(files_item_data)
 
             files.append(files_item)
 
-        times = []
         _times = d.pop("times")
+        times = []
         for times_item_data in _times:
             times_item = isoparse(times_item_data)
 
             times.append(times_item)
 
-        objects = []
         _objects = d.pop("objects")
+        objects = []
         for objects_item_data in _objects:
             objects_item = AnObject.from_dict(objects_item_data)
 

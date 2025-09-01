@@ -46,8 +46,8 @@ class AnArrayWithACircularRefInItemsObjectAdditionalPropertiesBItem:
 
         additional_properties = {}
         for prop_name, prop_dict in d.items():
-            additional_property = []
             _additional_property = prop_dict
+            additional_property = []
             for (
                 componentsschemas_an_array_with_a_circular_ref_in_items_object_additional_properties_a_item_data
             ) in _additional_property:
